@@ -1,0 +1,52 @@
+<div class="col-12">
+    <div class="card">
+        <div class="grid">
+            <div class="col-12 md:co-12">
+                <div class="card p-fluid">
+                    <h1>Datos del Alumno</h1>
+                    <div class="field">
+                        <label htmlFor="id">ID</label>
+                        <input pInputText type="text" [(ngModel)]="alumno.id" [disabled]="isEdit"/>
+                    </div>
+                    <div class="field">
+                        <label htmlFor="nombre">Nombre</label>
+                        <input pInputText type="text" [(ngModel)]="alumno.nombre"/>
+                    </div>
+                    <div class="field">
+                        <label htmlFor="paterno">Apellido Paterno</label>
+                        <input pInputText type="text" [(ngModel)]="alumno.paterno"/>
+                    </div>
+                    <div class="field">
+                        <label htmlFor="materno">Apellido Materno</label>
+                        <input pInputText type="text" [(ngModel)]="alumno.materno"/>
+                    </div>
+                    <div class="field">
+                        <label htmlFor="email">Email</label>
+                        <input pInputText type="text" [(ngModel)]="alumno.email"/>
+                    </div>
+                    <p-toast />
+                    <p-confirmDialog #cd>
+                        <ng-template pTemplate="headless" let-message>
+                            <div class="flex flex-column align-items-center p-5 surface-overlay border-round">
+                                <div class="border-circle bg-primary inline-flex justify-content-center align-items-center h-6rem w-6rem">
+                                    <i class="pi pi-exclamation-triangle text-4xl text-white"></i>
+                                </div>
+                                <h5 class="text-2xl text-center">{{message.header}}</h5>
+                                <p>{{message.message}}</p>
+                                <div class="grid">
+                                    <div class="col-6">
+                                        <button pButton type="button" label="Yes" icon="pi pi-check" (click)="cd.accept()" class="p-button-success w-full"></button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button pButton type="button" label="No" icon="pi pi-times" (click)="cd.reject()" class="p-button-danger w-full"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-confirmDialog>
+                    <button pButton label="Guardar" (click)="confirm()" ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
